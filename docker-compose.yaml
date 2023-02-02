@@ -1,0 +1,13 @@
+version: '3' # composeファイルのバージョン
+services:
+  boiler-plate: # サービス名
+    container_name: boiler-plate
+    build: # ビルドに使うDockerファイルのパス
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes: # マウントディレクトリ
+      - .:/Work
+    tty: true # コンテナの永続化
+    environment:
+      - TZ=Asia/Tokyo
+    network_mode: host

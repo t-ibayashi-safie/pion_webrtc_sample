@@ -1,0 +1,8 @@
+[
+  {
+    "title": "go Receive",
+    "link": "go-receive",
+    "description": "The go-receive example shows how to receive media from the browser.",
+    "type": "browser"
+  }
+]
