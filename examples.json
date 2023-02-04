@@ -2,7 +2,19 @@
   {
     "title": "go Receive",
     "link": "go-receive",
-    "description": "The go-receive example shows how to receive media from the browser.",
+    "description": "ブラウザから送信されたメディアを受けとり、デコードします。",
+    "type": "browser"
+  },
+  {
+    "title": "send local media",
+    "link": "send-local-media",
+    "description": "ローカルのメディアファイルをh.264にエンコードしてブラウザに送ります。",
+    "type": "browser"
+  },
+  {
+    "title": "reflect",
+    "link": "reflect",
+    "description": "ブラウザから送信されたメディアをブラウザに送り返します。",
     "type": "browser"
   }
 ]

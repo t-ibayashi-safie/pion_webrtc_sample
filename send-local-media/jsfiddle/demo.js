@@ -51,7 +51,7 @@ function displayVideo(video) {
 }
 
 async function sendVideoStream() {
-  stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+  stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
 
   try {
     stream.getTracks().forEach(function(track) {

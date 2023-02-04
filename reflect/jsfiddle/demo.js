@@ -29,6 +29,8 @@ pc.ontrack = function (event) {
   el.srcObject = event.streams[0]
   el.autoplay = true
   el.controls = true
+  el.width = 160
+  el.height = 120
   document.getElementById('remoteVideos').appendChild(el)
 }
 
@@ -51,7 +53,7 @@ function displayVideo(video) {
 }
 
 async function sendVideoStream() {
-  stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+  stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
 
   try {
     stream.getTracks().forEach(function(track) {
