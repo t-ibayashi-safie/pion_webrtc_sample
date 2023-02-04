@@ -1,7 +1,8 @@
-# send-rocal-media
+# reflect
 
 手動シグナリングによりブラウザ-サーバー間でWebRTC通信を行うサンプルです。
 
+ブラウザから送信されたメディアを送り返します。
 
 ## How to run
 ブラウザで``http://localhost/example/js/send-rocal-media/``を開きます。「Browser base64 Session Description」をコピーします。

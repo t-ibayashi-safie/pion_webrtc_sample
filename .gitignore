@@ -1,1 +1,5 @@
 go-receive/go-receive
+*.jpg
+*.ivf
+*.ogg
+*.mp4
