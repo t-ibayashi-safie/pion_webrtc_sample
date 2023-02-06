@@ -8,7 +8,7 @@
 
 以下を実行します。
 ```bash
-echo ${BSD} | ./send-rocal-media
+echo ${BSD} | ./send-local-media
 ```
 
 表示された文字列をブラウザの「Golang base64 Session Description」に貼り付けます。
