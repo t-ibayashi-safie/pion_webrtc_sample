@@ -16,7 +16,7 @@ var iceConnectedCtx context.Context
 var iceConnectedCtxCancel context.CancelFunc
 var logger *zap.Logger
 
-func initReflection(peerConnection *webrtc.PeerConnection) (*webrtc.TrackLocalStaticRTP, *webrtc.RTPSender) {
+func initReflect(peerConnection *webrtc.PeerConnection) (*webrtc.TrackLocalStaticRTP, *webrtc.RTPSender) {
 	// Create Track that we send video back to browser on
 	reflectTrack, err := webrtc.NewTrackLocalStaticRTP(webrtc.RTPCodecCapability{MimeType: webrtc.MimeTypeVP8}, "video", "pion")
 	if err != nil {
@@ -82,10 +82,21 @@ func main() {
 	}
 
 	// Create a new RTCPeerConnection
+	logger.Info("NewPeerConnection")
 	peerConnection, err := webrtc.NewPeerConnection(config)
 	if err != nil {
 		panic(err)
 	}
+
+	// 候補先情報を受信した場合にそれを表示する
+	peerConnection.OnICECandidate(func(candidate *webrtc.ICECandidate) {
+		logger.Info("OnICECandidate")
+		if candidate == nil {
+			logger.Info("No candidate")
+			return
+		}
+		logger.Info(fmt.Sprintf("Address: %s, Port: %d", candidate.Address, candidate.Port))
+	})
 
 	// 接続状態変更を検知した際に起動するイベントハンドラを設定する
 	peerConnection.OnICEConnectionStateChange(func(connectionState webrtc.ICEConnectionState) {
@@ -99,7 +110,7 @@ func main() {
 	// 送信するメディアを設定する
 	// videoTrack, rtpSenderは、メディアを送信する際に利用する
 	// ※ Local Session Descriptionを生成する前に実行する必要がある
-	reflectTrack, reflectRtpSender := initReflection(peerConnection)
+	reflectTrack, reflectRtpSender := initReflect(peerConnection)
 
 	// (オファー) Remote Session DescriptionをpeerConnectionに設定する
 	offer := webrtc.SessionDescription{}

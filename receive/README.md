@@ -6,6 +6,9 @@
 ## How to run
 ブラウザで``http://localhost/example/js/receive/``を開きます。「Browser base64 Session Description」をコピーします。
 
+もしくは以下
+[jsfiddle.net](https://jsfiddle.net/cqavdpj8/1/)
+
 以下を実行します。
 ```bash
 echo ${BSD} | ./receive
