@@ -207,10 +207,21 @@ func main() {
 	}
 
 	// Create a new RTCPeerConnection
+	logger.Info("NewPeerConnection")
 	peerConnection, err := webrtc.NewPeerConnection(config)
 	if err != nil {
 		panic(err)
 	}
+
+	// 候補先情報を受信した場合にそれを表示する
+	peerConnection.OnICECandidate(func(candidate *webrtc.ICECandidate) {
+		logger.Info("OnICECandidate")
+		if candidate == nil {
+			logger.Info("No candidate")
+			return
+		}
+		logger.Info(fmt.Sprintf("Address: %s, Port: %d", candidate.Address, candidate.Port))
+	})
 
 	// 接続状態変更を検知した際に起動するイベントハンドラを設定する
 	peerConnection.OnICEConnectionStateChange(func(connectionState webrtc.ICEConnectionState) {
