@@ -6,8 +6,8 @@
     "type": "browser"
   },
   {
-    "title": "Send local media",
-    "link": "send-local-media",
+    "title": "Send",
+    "link": "send",
     "description": "ローカルのメディアファイルをh.264にエンコードしてブラウザに送ります。",
     "type": "browser"
   },

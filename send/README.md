@@ -1,4 +1,4 @@
-# send-rocal-media
+# send
 
 手動シグナリングによりブラウザ-サーバー間でWebRTC通信を行うサンプルです。
 
@@ -8,7 +8,7 @@
 
 以下を実行します。
 ```bash
-echo ${BSD} | ./send-local-media
+echo ${BSD} | ./send
 ```
 
 表示された文字列をブラウザの「Golang base64 Session Description」に貼り付けます。
